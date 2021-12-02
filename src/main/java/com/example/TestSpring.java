@@ -4,24 +4,15 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
-                "applicationContex.xml"
-        );
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContex.xml");
+        Music music = context.getBean("rockMusic",Music.class);
+        MusicPlayer musicPlayer = new MusicPlayer(music);
+        musicPlayer.playMusic();
 
-        //Music musicBean = context.getBean("musicBean", Music.class);
-        //MusicPlayer player = new MusicPlayer(musicBean);
+        Music music2 = context.getBean("classicalMusic",Music.class);
+        MusicPlayer musicPlayer1 = new MusicPlayer(music2);
+        musicPlayer1.playMusic();
 
-        MusicPlayer firstmp = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer secondtmp = context.getBean("musicPlayer", MusicPlayer.class);
-        boolean equal = firstmp==secondtmp;
-        System.out.println(equal);
-
-        firstmp.setValue(10);
-        System.out.println(firstmp.getValue());
-        System.out.println(secondtmp.getValue());
-        firstmp.playMusic();
-        System.out.println(firstmp.getName());
-        System.out.println(firstmp.getValue());
 
         context.close();
 
