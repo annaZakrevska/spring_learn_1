@@ -9,8 +9,12 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan("com.example")
 @PropertySource("classpath:musicPlayer.properties")
 public class SpringConfig {
+
+    //configuration witout xml file
+    //confuguration without annotations component and autowired
+
     @Bean
-    public ClassicalMusic classicalMusic() {
+    public ClassicalMusic classicMusic() {
         return new ClassicalMusic();
     }
 
@@ -21,7 +25,7 @@ public class SpringConfig {
 
     @Bean
     public MusicPlayer musicPlayer() {
-        return new MusicPlayer(rockMusic(), classicalMusic());
+        return new MusicPlayer(rockMusic(), classicMusic());
     }
 
     @Bean
