@@ -2,7 +2,7 @@ package com.example;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
+@Component
 public class ClassicalMusic implements Music {
 
     @Override

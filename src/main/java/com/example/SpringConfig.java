@@ -28,9 +28,9 @@ public class SpringConfig {
         return new MusicPlayer(rockMusic(), classicMusic());
     }
 
-    @Bean
+    /*@Bean
     Computer computer() {
         return new Computer(musicPlayer());
-    }
+    }*/
 
 }
